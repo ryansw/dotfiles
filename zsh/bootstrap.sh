@@ -23,3 +23,7 @@ if [ ! -d $ZINIT_HOME ]; then
     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
+# Install plugins before load
+if command -v zsh &>/dev/null; then
+    zsh -c 'source ~/.zshrc ; exit'
+fi

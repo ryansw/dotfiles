@@ -6,3 +6,8 @@ SOURCE=$(dirname $0 | xargs readlink -f)
 
 [ ! -d $CONFIG ] && mkdir -p $CONFIG
 [ ! -d $NVIM ] && ln -s $SOURCE $NVIM
+
+# Install plugins before load
+if command -v nvim &>/dev/null; then
+    nvim --headless "+Lazy! sync" +qa
+fi
