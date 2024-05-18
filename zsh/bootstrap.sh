@@ -25,5 +25,5 @@ fi
 
 # Install plugins before load
 if command -v zsh &>/dev/null; then
-    zsh -c 'source ~/.zshrc ; exit'
+    TERM=screen zsh -c 'source ~/.zshrc ; exit 0'
 fi
