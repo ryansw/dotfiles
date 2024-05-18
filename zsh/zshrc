@@ -1,0 +1,67 @@
+# Create a home directory for zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit snippet OMZP::git
+
+# Load completions
+autoload -U compinit && compinit
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# I hate the bell
+unsetopt BEEP
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# Git version control info for PROMPT string
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats ' (%b)'
+
+# Keybind mode to vi
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# Use nvim if we've got it
+if command -v nvim &>/dev/null; then
+    export EDITOR=nvim
+    alias vim=nvim  # Dangerous? Maybe.
+else
+    export EDITOR=vim
+fi
+
+# Prompt string
+PROMPT=$'%F{green}%n@%m %F{yellow}%~%F{blue}\${vcs_info_msg_0_}%F{white}%E\n\U03bb %E'
+RPROMPT=$'%1(j.%F{white}(%j) .)%F{grey}%B%D %*%b'
+
+# Recover bash aliases
+[[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
+
+# System specifics here
+[[ -f ~/.zsh_system ]] && source ~/.zsh_system
+
