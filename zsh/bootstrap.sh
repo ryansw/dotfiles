@@ -24,6 +24,6 @@ if [ ! -d $ZINIT_HOME ]; then
 fi
 
 # Install plugins before load
-if command -v zsh &>/dev/null; then
+if command -v zsh; then
     TERM=screen zsh -c 'source ~/.zshrc ; exit 0'
 fi

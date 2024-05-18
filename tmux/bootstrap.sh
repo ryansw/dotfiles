@@ -11,7 +11,7 @@ TMUXRC=$HOME/.tmux.conf
 [ ! -d $TMUX/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm $TMUX/plugins/tpm
 
 # Install plugins before load
-if command -v tmux &>/dev/null; then
+if command -v tmux; then
     tmux start-server
     tmux new-session -d
     sleep 1

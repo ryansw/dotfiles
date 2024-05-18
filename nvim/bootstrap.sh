@@ -9,7 +9,8 @@ INSTALL=$HOME/.local/nvim/nvim-linux64
 [ ! -d $NVIM ] && ln -s $SOURCE $NVIM
 
 # Install plugins before load
-if command -v nvim &>/dev/null; then
+if command -v nvim; then
+    echo nvim on path?
     nvim --headless "+Lazy! sync" +qa
 elif [ -d $INSTALL ]; then
     echo nvim not on path, but was installed

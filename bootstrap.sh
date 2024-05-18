@@ -3,7 +3,7 @@
 SOURCE=$(dirname $0 | xargs readlink -f)
 
 # TODO This should be an option
-if command -v nvim &>/dev/null; then
+if ! command -v nvim; then
     echo nvim not installed - installing
     $SOURCE/nvim/install.sh
 fi
