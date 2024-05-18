@@ -6,7 +6,7 @@ LOCALBIN=$HOME/.local/bin
 [ -d $INSTALL ] && rm -rf $INSTALL
 
 # Create the install directory
-mkdir $INSTALL
+mkdir -p $INSTALL
 cd $INSTALL
 
 # Download the binary
