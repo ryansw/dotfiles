@@ -55,7 +55,7 @@ require("lazy").setup({
 
     -- LSP Config
     "neovim/nvim-lspconfig",
-    
+
     -- NVIM Autocomplete
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
