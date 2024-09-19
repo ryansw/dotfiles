@@ -1,1 +1,7 @@
 alias ll='ls -alF'
+
+# What could go wrong?
+alias vim=nvim
+
+alias dot-git="git -C ~/.dotfiles"
+alias dot-pull="dot-git pull"
