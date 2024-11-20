@@ -1,6 +1,6 @@
 dot-pull()
 {
-    git -C $DOTFILES pull >/dev/null || echo [ Error pulling dotfile changes ]
+    git -C $DOTFILES pull --ff-only >/dev/null || echo [ Error pulling dotfile changes ]
 }
 
 dot-push()
