@@ -45,5 +45,9 @@ fi
 # Assemble the preferred prompt
 PS1="\n\[\033[32m\]\u@\h \[\033[33m\]\w${PS1_Code}${PS1_GIT}\[\033[0m\]\n$(echo -e '\u03bb') "
 
+# Call dotfiles updater
+DOTFILES=$(readlink -f $(dirname $(readlink -f $BASH_SOURCE))/..)
+. $DOTFILES/scripts/dotfile-update.sh
+
 # Allow system specific bashrc stuff here
 [ -f ~/.bash_system ] && . ~/.bash_system

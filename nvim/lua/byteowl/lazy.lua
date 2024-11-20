@@ -10,6 +10,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    -- Obsidian
+    "epwalsh/obsidian.nvim",
+
     -- Telescope (fuzzy finder)
     {
         "nvim-telescope/telescope.nvim",

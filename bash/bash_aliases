@@ -1,7 +1,6 @@
 alias ll='ls -alF'
 
-# What could go wrong?
-alias vim=nvim
-
-alias dot-git="git -C ~/.dotfiles"
-alias dot-pull="dot-git pull"
+if command -v nvim >/dev/null; then
+    # What could go wrong?
+    alias vim=nvim
+fi

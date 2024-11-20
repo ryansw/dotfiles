@@ -63,6 +63,10 @@ base16_dracula
 PROMPT=$'%F{green}%n@%m %F{yellow}%~%F{blue}\${vcs_info_msg_0_}%F{white}%E\n\U03bb %E'
 RPROMPT=$'%1(j.%F{white}(%j) .)%F{grey}%B%D %*%b'
 
+# Call dotfiles updater
+DOTFILES=$(readlink -f $(dirname $(readlink -f ${(%):-%N}))/..)
+. $DOTFILES/scripts/dotfile-update.sh
+
 # Recover bash aliases
 [[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
 
