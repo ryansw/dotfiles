@@ -3,7 +3,7 @@
 DOTFILES=$(readlink -f $(dirname $0)/..)
 
 # Fix the origin for the repo
-git -C $DOTFILES remote set-url origin git@github.com:ryansw/dotfiles.git 
+git -C $DOTFILES remote set-url origin git@github.com:ryansw/dotfiles.git
 
 # TODO This should be an option
 if ! command -v nvim >/dev/null; then
