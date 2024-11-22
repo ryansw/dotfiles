@@ -16,7 +16,7 @@ local attach_defaults = function(_, bufnr)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 
     vim.keymap.set('n', '<leader>d', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
@@ -36,6 +36,7 @@ local defservers = {
     'jinja_lsp',
     'pyright',
     'lua_ls',
+    'zls',
 }
 
 -- Setup the servers that use default settings
